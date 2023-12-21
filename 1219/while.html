@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문_03 반복문(while, do while, for)</title>
+</head>
+<body>
+    <h2>제어문_03 반복문(while, do while, for)</h2>
+    <p><b>반복문</b><br>
+    작업을 반복수행할 때 사용하며, 조건문(if)이 프로그램을 지적으로 만든다면 반복문은 프로그램을 강력하게 만드는 역할을 한다.</p>
+    <p><b>주의할 점</b> : 조건을 잘못 설정하면 무한루프에 빠지는 오류가 생기며, 브라우저에 화면 멈춤현상이 발생됨.</p>
+    <p><b>프로그램 강제종료</b> : <mark>ctrl + alt + del</mark>키를 눌러서 작업관리자를 띄워 프로그램을 강제종료한다.</p>
+
+    <br><hr><br>
+
+    <ul>
+        <li><b>while문</b> : 반복조건</li><br>
+        <li><b>do while문</b> : 반복조건</li><br> 
+        <li><b>for문</b> : 반복회수</li>
+    </ul>
+
+    <br><hr><br>
+
+    <pre>
+        <b>1. while문</b><br>
+        while(조건식){
+            실행할 내용;
+        };
+
+        <br>
+
+        <b>2. do while문</b><br>
+            do{
+                실행할 내용
+            };
+            while(조건식);
+
+        <br>
+
+        <b>3. for문</b>
+            for(초기값;조건식;증감식){
+                실행할 내용;
+            };
+    </pre>
+
+    <br><hr><br>
+
+    <h3>실습 : 반복문을 사용하여 숫자 1부터 10까지 출력해보기</h3>
+    <script>
+        // 1. while문
+        let n = 1; //초기값 선언
+        
+        while(n<=10){ //조건에 만족할 때까지 반복한다.
+            document.write(n); //내용을 출력하고
+            n++ //기존 값에 1을 더한다.
+        }
+
+        document.write('<br> <hr>');
+
+        // 2. do while문
+        let n1 = 1;
+        do{
+            document.write(n1);
+            n1++;
+        }while(n1<=20);
+
+        document.write('<br> <hr>');
+
+        // 3. for문
+        for(let n2=1;n2<=20;n2++){
+            document.write(n2);
+        };
+        
+    </script>
+
+    <br><hr><br>
+
+    <h3>실습1. 반복문을 활용하여 구구단 출력하기 (예. 2*1=2, 2*2=4)</h3>
+    <script>
+        for(let a=1;a<=5;a++){
+            document.write('<p>**************** '+ '<b>' + a +'단</b> ****************</p>');
+            for(let b=1;b<=5;b++){
+                // 2 * 1 = 2 수식작성하여 출력하기
+                document.write(a +' x ' + b + ' = ' + '<b>' + a*b + '</b> <br>');
+            };
+        };
+    </script>
+
+    <br><hr><br>
+
+    <h3>실습 2. 반복문을 활용하여 테이블태그 만들기</h3>
+    <script>
+        document.write('<table>');
+        document.write('<caption>테이블 제목이나 설명문구</caption>');
+        document.write('<tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>');
+
+        for(let day=1;day<=35;day++){
+            if(day%7==1){ // 7칸까지만 나오게함 , 홀수번째
+                document.write('<tr>');
+                document.write('<td>'+day+'</td>');
+                continue;
+        }
+        if(31<day&&day<=35){ // 마지막 공백
+            document.write('<td>&nbsp;</td>');
+            continue;
+        }
+        if(day%7==0){ //짝수번째
+            document.write('<td>'+day+'</td>');
+            document.write('</tr>');
+            continue;
+        }
+        document.write('<td>'+day+'</td>');
+        }
+        document.write('</table>');
+    </script>
+
+<br><br><br><br><br><br>
+</body>
+</html>

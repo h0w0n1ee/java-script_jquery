@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습예제_여행</title>
+        <!-- 폰트어썸 주소 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <!-- 스타일 -->
+        <style>
+            .b_box *{margin: 0px; padding: 0px;}
+            .b_box{
+                background:  rgb(255, 187, 0);
+                padding: 20px;
+            }
+            .bb_box{
+                margin: 0px auto;
+                width: 600px; height: 485px;
+                background: #fff;
+                border-radius: 30px;
+                padding: 0px 10px;
+                position: relative;
+            }
+            .bb_box > h1{
+                display: flex;
+                padding: 5px 10px;
+                font-size: 20px;
+                color: rgb(224, 101, 0);
+            }
+            .bb_box > h1 > img{
+                width: 120px; padding-right: 10px;
+            }
+            .bb_box > img{
+                width: 100%;
+                height: 450px;
+                border-radius: 20px;
+            }
+            span.fas{
+                color: #fff;
+                font-size: 30px;
+                padding: 10px 15px;
+                background: rgba(136, 100, 3, 0.7);
+                border-radius: 100%;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+            }
+            .fa-angle-left{
+                left: 3%;
+                z-index: 9999;
+            }
+            .fa-angle-right{
+                right: 3%;
+                z-index: 9999;
+            }
+
+            #yellow_img{position: relative;}
+            #img{
+                background: #000;
+                color: #fff;
+                padding: 3.9px;
+                position: absolute;
+                width: 100%;
+                top: 90%;
+                z-index: 9999;
+            }
+            </style>
+</head>
+<body>
+    <article class="b_box">
+        <div class="bb_box">
+            <h1>
+                <img src="./img/logo.jpg" alt="logo">
+                <p>pick 추천 여행</p>
+            </h1>
+            <p>
+                <span id="img"></span>
+                <span class="fas fa-angle-left" id="left_btn"></span>
+                <span class="fas fa-angle-right" id="right_btn"></span>
+            </p>
+    
+            <img src="./img/yellow01.jpg" alt="img01" id="yellow_img">
+        </div>
+    </article>
+
+    <!-- 스크립트 -->
+    <script>
+        // 1.변수값
+        let n = 1;
+        const l_btn = document.getElementById('left_btn');
+        const r_btn = document.getElementById('right_btn');
+
+        // 2. 페이지 번호 변수 선언
+        let img_n = document.getElementById('img');
+
+        // 3.페이지 번호 출력하기
+        img_n.innerHTML = n + '/6';
+
+        // 4. 좌우 버튼 클릭시..
+        l_btn.addEventListener('click', function(){
+            // window.alert('왼쪽버튼 클릭');
+            if(n==1){
+                n=6;
+            }else{
+                n--
+            }
+            img_n.innerHTML = n + '/6';
+            document.getElementById('yellow_img').src='./img/yellow0'+n+'.jpg';
+        });
+
+        r_btn.addEventListener('click', function(){
+            // window.alert('오른쪽버튼 클릭');
+            if(n==6){
+                n=1;
+            }else{
+                n++
+            }
+            img_n.innerHTML = n + '/6';
+            document.getElementById('yellow_img').src='./img/yellow0'+n+'.jpg';
+        });
+    </script>
+</body>
+</html>

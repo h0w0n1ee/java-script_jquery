@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 자바스크립트 _ 함수 (function)</title>
+    <style>
+        .hosting{
+            width: 500px;
+            border: 1px solid#333;
+        }
+
+        .name00{
+            color: rgb(57, 167, 14);
+            font-weight: bold;}
+
+
+    </style>
+
+    <script>
+        // 1. 함수 선언하기
+        function btn_off(){
+            window.alert('전원을 끄시겠습니까? 한 번 더 눌러주세요.')
+        }
+    </script>
+</head>
+<body>
+    <h2>01 자바스크립트 _ 함수 (function)</h2>
+    <dl>
+        <dt><b>함수(function)이란?</b></dt>
+        <dd>* 함수는 인련의 내용을 삽입하여 사용자가 언제든 호출하여 내용을 실행할 수 있는 실행문</dd><br>
+        <dd>* 언제든 사용자가 필요할 때 다시 실행할 수 있다.</dd><br>
+        <dd>* 코드의 중복 제거 및 재사용이 용이하다.</dd><br>
+        <dd>* 유지보수의 용이성이 높다.</dd><br>
+        <dd>* 함수의 종류는 <ul>
+            <li>내장함수 [window / alert / console / prompt ...]</li>
+            <li>사용자 정의 []</li>
+            </ul>이 두 개가 있다.
+        </dd>
+    </dl>
+    <input type="button" value="전원버튼" onclick="btn_off();">
+    <br><br><hr><br>
+    <pre>
+        //함수 문법 3가지
+        1. 매개변수가 없는 일반 사용자정의 함수
+        function 함수명(){
+            실행할 내용;
+        }
+
+        2. 매개변수가 있는 함수
+        function 함수명(변수1, 변수2, 변수3, 변수4 ...){
+            실행할 내용;
+        }
+
+        3. 리턴값이 있는 함수
+        function 함수명(변수1, 변수2, 변수3, 변수4 ...){
+            실행할 내용;
+            return 실행결과;
+        }
+    </pre>
+    <br><br><hr><br>
+        <h3>자바스크립 함수 호스팅</h3>
+        <p>자바스크립트가 실행되면 parser가 빌드하면서 문법을 검사합니다. 이 와중에 끌어올릴 값을 선택하여 내부적으로 최상단에서 끌어 올려 처리합니다. 이것을 <ins>호스팅(hosting)문법</ins>이라고 합니다.</p>
+        <img src="./images/hosting.png" alt="호스팅" class="hosting">
+
+        <br><br><hr><br>
+
+        <h3>화살표 함수 : =></h3>
+        <p>2015년 자바스크립트 표준화가 되면서 새롭게 변경된 함수 작성법</p>
+        <p>function 을 <b>=></b>(화살표로 단축)</p>
+        <p><b>익명함수</b>로만 작성 가능</p>
+        <br><br><hr><br>
+
+        <script>
+
+            // 2. 함수명을 작성하여 호출하기
+            print01();
+
+            // 1. 매개변수가 없는 일반 사용자 정의함수
+            function print01(){
+                document.write('<p>매개변수가 없는 일반 사용자 정의 함수입니다.(함수 호스팅 hosting)</p>');
+            };
+
+            // 3. 매개 변수가 있는 사용자 정의 함수
+            function print02(name, region, name2){
+                document.write(`<p>${name}가 사는 지역은 ${region}입니다.</p>`);
+            };
+
+            // 4. 매개변수가 있는 함수 호출하기
+            print02('철수','서울', '이름');
+
+
+            // ★ 실습 :: 명령프롬프트(prompt)를 사용하여 사용자의 별명을 입력시 함수로 전달하여
+            // '000(bold)'님 로그인 하셨습니다. 라고 출력하기
+
+            let name00 = prompt('닉네임을 입력해주세요.');
+
+            print_n(name00);
+            
+            function print_n(name00){
+                document.write(`<p><span class="name00">${name00}</span>님 로그인하셨습니다.</p>`);
+            };
+
+            // 리턴값이 있는 함수 작성하기
+            function print04(){
+                document.write(`<p>리턴값이 있는 함수 입니다.</p>`);
+                return window.alert('함수 종료 입니다. 더 이상 실행하지 않습니다.');
+
+                document.write('이 문장은 출력되지 않습니다.')
+            }
+
+            print04();
+
+
+            // 화살표 함수 =>
+            // 1. 매개변수 없는 함수
+            const h1 = function(){
+                return '매개변수 없는 화살표 함수 사용하기';
+            }
+            console.log(h1);
+
+            const h2 = ()=>{
+                return '매개변수 없는 화살표 함수 사용하기';
+            }
+            console.log(h2);
+
+            const h3 = ()=> alert('매개변수 없는 화살표 함수 사용하기'); //중괄호 생략가능
+            console.log(h3);
+
+            // let 키워드는 변하는 값을 저장하고자 하는 변수를 선언할 때 사용하는 키워드
+            //  const 키원드는 변하지 않는 고정된 값을 저장하기 위한 변수를 선언하고자 할 때 사용하는 키워드
+        </script>
+</body>
+</html>
