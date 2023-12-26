@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 자바스크립트 내장객체_배열(array)객체</title>
+    <style>
+        #food{
+            width: 400px; height: 280px;
+            border: 3px solid #000;
+            margin: 0px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>02 자바스크립트 내장객체_배열(array)객체</h2>
+    <dl>
+        <dt><b>배열(array)객체 </b>이란?</dt>
+        <ol>
+            <li>연관된 데이터를 <ins>하나처럼 관리</ins>하고 싶을 때 사용</il>
+            <li>복수의 데이터를 <ins>제어할 수 있는 다양한 함수 제공</ins></li>
+            <li>배열의 함수를 이용한 <ins>데이터의 편리한 조작</ins>이 가능</li>
+        </ol>
+    </dl>
+
+    <br><hr><br>
+
+    <h3>1. 배열 객체 선언하기</h3>
+    <p><b>방법 (1)</b><br>
+    let array = new Array(data1, data2, data3 data4 ... dataN);</p><br>
+    <p><b>방법 (2)</b><br>
+    let array = [data1, data2, data3 data4 ... dataN];</p>
+
+    <br>
+    <p><b>예시 (1)</b><br>
+    let fruits = new Array('수박', '참외', '귤', '감', '사과', '포도', '복숭아' ...)</p>
+    <p><b>예시 (2)</b><br>
+    let fruits = ['수박', '참외', '귤', '감', '사과', '포도', '복숭아' ...]</p>
+
+
+    <br><hr><br>
+
+
+    <h3>2. 배열 객체 호출하기</h3>
+    <p>배열객체의 데이터를 호출하고자 할 때는 <ins>인덱스 번호</ins>를 사용하는데 번호는 <ins>0 부터 시작</ins>한다.</p>
+
+    <script>
+        // 방법(1). 배열객체 선언하기
+        let fruits = new Array('수박', '참외', '귤', '감', '사과', '포도', '복숭아');
+
+        // 출력하기
+        document.write(fruits+'<br>');
+        document.write(fruits[0]+'<br>');
+        document.write(fruits[1]+'<br>');
+        document.write(fruits[2]+'<br>');
+
+        // 
+
+        // 방법 (2). 배열객체 선언하기
+        let food = ['자장면', '짬뽕', '햄버거', '돈가스', '라면', '김밥', '샐러드', '열무비빔밥', '컵밥', '닭가슴살', '쌈밥'];
+
+        let r = Math.floor(Math.random()*11);
+
+        
+
+        // 출력하기
+        document.write(`<p>내가 선택한 오늘의 점심 메뉴는 ${food[0]}입니다.</p>`);
+
+        document.write(`<p>JS가 선택한 오늘의 점심 메뉴는 ${food[r]}입니다.</p>`);
+    </script>
+
+
+    <br><hr><br>
+
+    <h3>실습예제. 중화요리 음식 이미지를 사용하여 요일별 음식 추천하기</h3>
+    <p>날짜 객체를 사용하여 현재 요일 번호를 구해서 배열번호에 맞는 이미지 파일명을 찾아 img태그에 대입해서 음식 사진이 요일별로 출력되게 한다.</p>
+
+    <div id="food">
+
+    </div>
+
+    <script>
+        // 오늘(토)의 추천요리는 '[사진]'입니다.
+        // 1. 배열객체를 생성하여 음식파일명을 배열로 담는다.
+        let cfood = ['food1', 'food2', 'food3', 'food4', 'food5', 'food6', 'food7'];
+        let yoil = ['(일)', '(월)', '(화)', '(수)', '(목)', '(금)', '(토)'];
+
+        // 2. 요일번호 출력하기.
+        let today = new Date(); // 날짜객체 생성하기
+
+        document.write(`<p>${today.getDay()}</p>`);
+
+        document.write(`<p>${today}</p>`); // 5 >> 금요일을 의미
+        
+        document.write(`${yoil[today.getDay()]}`); // (금)
+
+        let y = yoil[today.getDay()];
+        let n = today.getDay();
+
+        // 3. #food박스에 내용 출력하기
+        document.getElementById('food').innerHTML=`<h3>오늘${y}의 추천요리</h3><img src='./images/${cfood[n]}.jpg' alt="">`;
+        
+    </script>
+
+</body>
+</html>

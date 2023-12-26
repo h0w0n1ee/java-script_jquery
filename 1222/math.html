@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 자바스크립트 내장객체_수학객체</title>
+    <style>
+        .banner{
+            width: 430px; height: 240px;
+            border: 4px solid #000;
+            overflow: hidden;
+        }
+        .banner img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2>01 자바스크립트 내장객체_수학(math)객체</h2>
+    <p><b>수학객체</b> : 다른 내장객체와 다르게 new키워드를 사용하지 않는 <ins>정적인 객체</ins>이다.</p>
+    <p><b>객체(object)</b> : <ins>메서드</ins> / <ins>속성</ins>으로 나뉜다.</p>
+    <ul>
+        <p><b>~~~~ 객 체 ~~~~</b></p>
+        <li><b>메서드 (동사)</b> : 기능적인 동작을 말한다, <ins>write();</ins></li>
+        <li><b>속성 (명사)</b> : 서식등을 말한다, <ins>style.color='서식내용'</ins></li>
+    </ul>
+
+    <br><hr><br>
+
+    <h3>수학객체의 속성들</h3>
+    <ol>
+        <li><b>e</b> : 상수</li><br>
+        <li><b>PI</b> : 원주율</li><br>
+        <li><b>SQRT2</b></li><br>
+        <li><b>SQRT1_2</b></li><br>
+        <li><b>LN2</b></li><br>
+        <li><b>LN10</b></li><br>
+        <li><b>LOG2E</b></li><br>
+        <li><b>LOG10E</b></li>
+    </ol>
+
+    <hr>
+
+    <h3>수학객체의 매서드 종류</h3>
+    <ol>
+        <li><b>max(숫자1, 숫자2, 숫자3 ...)</b> : 숫자들 중에서 최대값을 반환</li><br>
+        <li><b>min(숫자1, 숫자2, 숫자3 ...)</b> : 숫자들 중에서 최대소값을 반환</li><br>
+        <li><b>round(숫자)</b> : 소수점 첫째 자리를 반올림</li><br>
+        <li><b>ceil(숫자)</b> : 소수점 자리를 무조건 올림</li><br>
+        <li><b>floor(숫자)</b> : 소수점 자리를 무조건 절삭</li><br>
+        <li><b>abs(숫자)</b> : 수의 절대값을 반환</li><br>
+        <li><b>random(숫자)</b> : 0과 1사이의 난수 표시</li>
+    </ol>
+
+    <br><hr><br>
+
+    <script>
+        document.write('<p>1. 수학객체 메서드 사용하기</p>');
+        let a, b;
+        a = 10;
+        b = 50;
+        c = 0.46789;
+
+        let max = Math. max (a,b); // (max) a, b중에 최대값을 구하여 max 변수에 저장(대입)한다.
+        let min = Math. min (a,b); // (min) a, b중에 최소값을 구하여 min변수에 저장(대입)한다.
+        let round = Math.round(c); // (round) 소수점 첫째 자리에서 반올림 (5 이상 일 때만)
+        let ceil = Math.ceil(c); // (ceil) 소수점 첫째자리에서 무조건 올림
+        let floor = Math.floor(c); // (floor) 소수점 첫째자리에서 무조건 절삭
+        let abs = Math.abs(-123.45678); // (abs) 절대값, 음수가 양수로 전환
+        let random = Math.random(); // 0 ~ 1 사이 난수(소수점)를 무작위로 출력해줌
+
+        // 출력하기
+        document.write(`<p><b>최대값 (max)</b> :: ${max}</p>`);
+        document.write(`<p><b>최소값 (min)</b> :: ${min}</p>`);
+        document.write(`<p><b>반올림 (round)</b> :: ${round}</p>`); //0.5
+        document.write(`<p><b>무조건 올림 (ceil)</b> :: ${ceil}</p>`); //1
+        document.write(`<p><b>무조건 절삭 (floor)</b> :: ${floor}</p>`); //0
+        document.write(`<p><b>절대값 (mab)</b> :: ${abs}</p>`); // 123.45678
+        document.write(`<p><b>난수(무작위 숫자)추출 (random)</b> :: ${random}</p>`); // 계속 무작위로 출력됨! (0 ~ 1 사이 숫자)
+    </script>
+
+    <br><hr><br>
+
+    <h3>2. 1 ~ 4까지 난수를 구하여 bannerN.hpg대입하여 랜덤 배너 만들기</h3>
+    <div class="banner">
+        <img src="./img/banner01.jpg" alt="배너광고" id="banner_img">
+    </div>
+
+    <script>
+        let ran_n = Math.random()*4+1;
+        let flo_n = Math.floor(ran_n);
+        document.write(`${ran_n,flo_n}`); // 출력하기 테스트
+
+        document.getElementById('banner_img').src="./img/banner0"+ran_n+".jpg";
+
+    </script>
+</body>
+</html>
