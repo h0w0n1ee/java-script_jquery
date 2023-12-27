@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업</title>
+    <style>
+        *{margin: 0px; padding: 0px; height: 360px;}
+        div img{width: 100%;}
+        input[type="button"]{
+            border: none;
+            background: #000;
+            color: #fff;
+            width: 100%; height: 39px;
+            margin-top: -4px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./images/banner.jpg" alt="">
+        <input type="button" value="닫기" id="c_btn">
+    </div>
+
+    <script>
+        const cbtn = document.getElementById('c_btn');
+
+        cbtn.addEventListener('click', function(){
+            close();
+        });
+    </script>
+</body>
+</html>
